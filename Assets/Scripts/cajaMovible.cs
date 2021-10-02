@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class cajaMovible : MonoBehaviour
 {
-    private GameObject puntoAgarre;
+    //private GameObject puntoAgarre;
+    private GameObject player;
 
     private void Start()
     {
-        puntoAgarre = GameObject.Find("puntoAgarre");
+        player = GameObject.FindWithTag("Player");
+        //puntoAgarre = GameObject.Find("puntoAgarre");
     }
+    /*
     public void grabbed()
     {
         GetComponent<Rigidbody>().useGravity = false;
@@ -25,5 +28,14 @@ public class cajaMovible : MonoBehaviour
         GetComponent<Rigidbody>().isKinematic = false;
         transform.parent = null;
         transform.position = puntoAgarre.transform.position;
+    }
+    */
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!player.GetComponent<Player>().grabbingInput) return;
+        if(collision.gameObject.name != "Piso")
+        {
+            player.GetComponent<Player>().released();
+        }
     }
 }

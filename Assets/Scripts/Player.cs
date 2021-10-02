@@ -21,14 +21,14 @@ public class Player : MonoBehaviour
     private GameObject camera;
 
     private bool grabInput = false;
-    private bool grabbingInput = false;
+    public bool grabbingInput = false;
     private bool ungrabInput = false;
     private GameObject grabbing;
-    private GameObject guide;
+    private GameObject puntoAgarre;
 
     private void Awake()
     {
-        guide = GameObject.Find("puntoAgarre");
+        puntoAgarre = GameObject.Find("puntoAgarre");
         grabbing = GameObject.Find("Grabbing");
         crosshair = GameObject.Find("CrossHair");
         canvasInventory = GameObject.Find("UI_Inventory");
@@ -92,9 +92,10 @@ public class Player : MonoBehaviour
                     if (hit.distance < grabbingDistance)
                     {
                         grabInput = false;
-                        guide.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y + 1, hit.transform.position.z);
+                        puntoAgarre.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y + 1, hit.transform.position.z);
                         grabbing = hit.transform.gameObject;
-                        grabbing.GetComponent<cajaMovible>().grabbed();
+                        //grabbing.GetComponent<cajaMovible>().grabbed();
+                        grabbed();
                         grabbingInput = true;
                     }
                     else
@@ -111,10 +112,13 @@ public class Player : MonoBehaviour
 
         if (ungrabInput)
         {
+            /*
             grabbingInput = false;
             grabbing.GetComponent<cajaMovible>().released();
             grabbing = null;
             ungrabInput = false;
+            */
+            released();
         }
     }
 
@@ -146,5 +150,25 @@ public class Player : MonoBehaviour
             }
             uiInventory.setInventory(inventory);
         }
+    }
+
+    private void grabbed()
+    {
+        grabbing.GetComponent<Rigidbody>().useGravity = false;
+        grabbing.GetComponent<Rigidbody>().isKinematic = true;
+        grabbing.transform.position = puntoAgarre.transform.position;
+        grabbing.transform.rotation = puntoAgarre.transform.rotation;
+        grabbing.transform.parent = puntoAgarre.transform;
+    }
+
+    public void released()
+    {
+        grabbingInput = false;
+        grabbing.GetComponent<Rigidbody>().useGravity = true;
+        grabbing.GetComponent<Rigidbody>().isKinematic = false;
+        grabbing.transform.parent = null;
+        grabbing.transform.position = puntoAgarre.transform.position;
+        grabbing = null;
+        ungrabInput = false;
     }
 }
