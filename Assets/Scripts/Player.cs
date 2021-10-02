@@ -26,6 +26,12 @@ public class Player : MonoBehaviour
     private GameObject grabbing;
     private GameObject puntoAgarre;
 
+    //Probando subir la platform
+    private bool pruebaPlat = false;
+    [SerializeField] private GameObject cylinder1;
+    [SerializeField] private GameObject cylinder2;
+    [SerializeField] private GameObject cylinder3;
+
     private void Awake()
     {
         puntoAgarre = GameObject.Find("puntoAgarre");
@@ -72,6 +78,10 @@ public class Player : MonoBehaviour
                 ungrabInput = true;
             }
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            pruebaPlat = true;
+        }
     }
 
     private void FixedUpdate()
@@ -94,7 +104,6 @@ public class Player : MonoBehaviour
                         grabInput = false;
                         puntoAgarre.transform.position = new Vector3(hit.transform.position.x, hit.transform.position.y + 1, hit.transform.position.z);
                         grabbing = hit.transform.gameObject;
-                        //grabbing.GetComponent<cajaMovible>().grabbed();
                         grabbed();
                         grabbingInput = true;
                     }
@@ -112,13 +121,15 @@ public class Player : MonoBehaviour
 
         if (ungrabInput)
         {
-            /*
-            grabbingInput = false;
-            grabbing.GetComponent<cajaMovible>().released();
-            grabbing = null;
-            ungrabInput = false;
-            */
             released();
+        }
+
+        if (pruebaPlat)
+        {
+            cylinder1.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            cylinder2.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            cylinder3.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            if (cylinder1.transform.localScale.y >= 12.4 && cylinder2.transform.localScale.y >= 12.4 && cylinder3.transform.localScale.y >= 12.4) pruebaPlat = false;
         }
     }
 
