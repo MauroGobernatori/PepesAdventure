@@ -15,6 +15,10 @@ public class Player : MonoBehaviour
     private bool showInventory = false;
     private GameObject canvasInventory;
 
+    // Canvas de muerte
+    private bool showMuerte = false;
+    private GameObject canvasMuerte;
+
     //Canvas Crosshair
     private GameObject crosshair;
 
@@ -43,12 +47,20 @@ public class Player : MonoBehaviour
             // Si el inventario está activo en canvas, desactivarlo
             canvasInventory.SetActive(false);
         }
+
         // Obtiene el inventario, vacío en la primer escena, con objetos las siguientes escenas
         inventory = GameObject.FindGameObjectWithTag("Inventario").GetComponent<Inventario>();
         uiInventory.setInventory(inventory);
 
         // Obtener la cámara para ver donde apunto
         camera = GameObject.FindWithTag("PlayerCamera");
+
+        canvasMuerte = GameObject.Find("MenuMuerte");
+        if (canvasMuerte.activeInHierarchy)
+        {
+            // Si la muerte está activo en canvas, desactivarlo
+            canvasMuerte.SetActive(false);
+        }
     }
 
     private void Update()
@@ -181,5 +193,13 @@ public class Player : MonoBehaviour
         grabbing.transform.position = puntoAgarre.transform.position;
         grabbing = null;
         ungrabInput = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Laser")
+        {
+
+        }
     }
 }
