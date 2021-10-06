@@ -21,6 +21,9 @@ public class CanvasControlador : MonoBehaviour
     public void respawnPlayer()
     {
         player.transform.position = respawn.transform.position;
+        player.GetComponent<FirstPersonMovement>().enabled = true;
+        player.GetComponent<Jump>().enabled = true;
+        player.GetComponent<Crouch>().enabled = true;
         if (canvasMuerte.activeInHierarchy)
         {
             canvasMuerte.SetActive(false);
@@ -30,6 +33,6 @@ public class CanvasControlador : MonoBehaviour
             crosshair.SetActive(true);
         }
         Cursor.lockState = CursorLockMode.Locked;
-        player.GetComponent<Healt_and_Damage>().vida = 100;
+        player.GetComponent<Player>().vida = 100;
     }
 }

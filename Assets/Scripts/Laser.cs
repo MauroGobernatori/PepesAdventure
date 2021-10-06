@@ -6,11 +6,11 @@ public class Laser : MonoBehaviour
 {
     [SerializeField] private int cantidad = 100;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Healt_and_Damage>().RestarVida(cantidad);
+            other.gameObject.GetComponent<Player>().RestarVida(cantidad);
         }
     }
 }

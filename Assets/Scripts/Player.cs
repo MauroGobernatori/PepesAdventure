@@ -35,6 +35,16 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject cylinder1;
     [SerializeField] private GameObject cylinder2;
     [SerializeField] private GameObject cylinder3;
+    [SerializeField] private GameObject cube1;
+    [SerializeField] private GameObject cube2;
+    [SerializeField] private GameObject cube3;
+
+    // Probando pasar la vida
+    public float vida = 100;
+    private bool invencible = false;
+    //private GameObject jugador;
+    [SerializeField] private float tiempo_invencible = 1f;
+    [SerializeField] private float tiempo_frenado = 0.2f;
 
     private void Awake()
     {
@@ -56,6 +66,11 @@ public class Player : MonoBehaviour
         camera = GameObject.FindWithTag("PlayerCamera");
 
         canvasMuerte = GameObject.Find("MenuMuerte");
+        
+    }
+
+    private void Start()
+    {
         if (canvasMuerte.activeInHierarchy)
         {
             // Si la muerte está activo en canvas, desactivarlo
@@ -98,6 +113,22 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Para que no reboten las plataformas (No se por qué rebotaban a veces)
+        if (cube1.transform.position.y >= 29.656f)
+        {
+            cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            cube1.transform.position = new Vector3(cube1.transform.position.x, 29.656f , cube1.transform.position.z);
+        }
+        if (cube2.transform.position.y >= 29.656f)
+        {
+            cube2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            cube2.transform.position = new Vector3(cube2.transform.position.x, 29.656f, cube2.transform.position.z);
+        }
+        if (cube3.transform.position.y >= 29.656f)
+        {
+            cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            cube3.transform.position = new Vector3(cube3.transform.position.x, 29.656f, cube3.transform.position.z);
+        }
         if (grabInput)
         {
             int x = Screen.width / 2;
@@ -199,7 +230,58 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.tag == "Laser")
         {
-
+            RestarVida(100f);
         }
+    }
+
+    // Funciones de la vida
+    public void RestarVida(float cantidad)
+    {
+        if (!invencible && vida > 0)
+        {
+            vida -= cantidad;
+            StartCoroutine(Invulnerabilidad());
+            StartCoroutine(FrenarVelocidad());
+
+            if (vida == 0)
+            {
+                GameOver();
+            }
+        }
+    }
+
+    private void GameOver()
+    {
+        //Poner aqui script para menu de muerte.
+        showMuerte = !showMuerte;
+        if (showMuerte)
+        {
+            crosshair.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+
+            canvasMuerte.SetActive(true);
+            showMuerte = !showMuerte;
+
+            GetComponent<FirstPersonMovement>().enabled = false;
+            GetComponent<Jump>().enabled = false;
+            GetComponent<Crouch>().enabled = false;
+        }
+    }
+
+    //Crea una especie de tiempo de invencibilidad para evitar que se le reste vida de la forma default (con cada frame) ya que es demasiado rapida.
+    IEnumerator Invulnerabilidad()
+    {
+        invencible = true;
+        yield return new WaitForSeconds(tiempo_invencible);
+        invencible = false;
+    }
+
+    //Guarda en la variable velocidadActual la velocidad con la que el jugador toca la lava.
+    IEnumerator FrenarVelocidad()
+    {
+        var velocidadActual = GetComponent<FirstPersonMovement>().speed;
+        GetComponent<FirstPersonMovement>().speed = 0;
+        yield return new WaitForSeconds(tiempo_frenado);
+        GetComponent<FirstPersonMovement>().speed = velocidadActual;
     }
 }

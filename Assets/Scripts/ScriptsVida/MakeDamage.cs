@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MakeDamage : MonoBehaviour
 {
-    public int cantidad = 10;
+    public float cantidad = 10;
 
     private void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
-            other.GetComponent<Healt_and_Damage>().RestarVida(cantidad);
+            other.GetComponent<Player>().RestarVida(cantidad);
         }
     }
      private void OnTriggerStay(Collider other) {
         if (other.tag == "Player") {
-            other.GetComponent<Healt_and_Damage>().RestarVida(cantidad);
+            other.GetComponent<Player>().RestarVida(cantidad);
         }
     }
 }

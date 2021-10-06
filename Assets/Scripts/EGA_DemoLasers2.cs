@@ -41,7 +41,7 @@ public class EGA_DemoLasers2 : MonoBehaviour
         Instance.gameObject.tag = "Laser";
         Instance.gameObject.AddComponent<CapsuleCollider>();
         Instance.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
-        Instance.gameObject.GetComponent<CapsuleCollider>().radius = 0.2f;
+        Instance.gameObject.GetComponent<CapsuleCollider>().radius = 0.15f;
         Instance.gameObject.GetComponent<CapsuleCollider>().height = 30f;
         Instance.gameObject.GetComponent<CapsuleCollider>().direction = 2;
         Instance.gameObject.GetComponent<CapsuleCollider>().center = new Vector3(0,0,15);
