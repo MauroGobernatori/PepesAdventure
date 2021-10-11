@@ -431,6 +431,54 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1194557792934341261, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.topLeft.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.topRight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.topRight.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.topRight.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333677, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_fontColorGradient.bottomRight.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333678, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -7.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1436381654347333678, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -179.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7534565944710165322, guid: 3ea3581b854e18741a3b9fa8108d7c80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

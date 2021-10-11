@@ -41,10 +41,13 @@ public class Player : MonoBehaviour
 
     // Probando pasar la vida
     public float vida = 100;
+
     private bool invencible = false;
     //private GameObject jugador;
     [SerializeField] private float tiempo_invencible = 1f;
     [SerializeField] private float tiempo_frenado = 0.2f;
+
+
 
     private void Awake()
     {

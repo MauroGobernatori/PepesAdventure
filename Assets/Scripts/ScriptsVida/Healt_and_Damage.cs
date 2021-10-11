@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
     Este Script le da un valor de vida al personaje, un estado de invencibilidad y una funcion que le resta la vida cuando toca la lava, dandole invencibilidad 
@@ -22,6 +23,8 @@ public class Healt_and_Damage : MonoBehaviour
     //Canvas Crosshair
     private GameObject crosshair;
 
+    public GameObject sliderVida;
+
     private void Awake()
     {
         crosshair = GameObject.Find("CrossHair");
@@ -35,10 +38,15 @@ public class Healt_and_Damage : MonoBehaviour
 
     //Crea una función que si la vida es mayor a 0 y el usuario no se encuentra en un estado de invencibilidad dicha función comenzara a restarle 10 de vida cada 1 seg.
     public void RestarVida(int cantidad) {
+
+        // sliderVida = gameObject.GetComponent<slider>().value; 
+
         if (!invencible && vida > 0){
             vida -= cantidad;
+            // sliderVida -= cantidad;
             StartCoroutine(Invulnerabilidad());
             StartCoroutine(FrenarVelocidad());
+            
             
             if(vida == 0) {
                 GameOver();
