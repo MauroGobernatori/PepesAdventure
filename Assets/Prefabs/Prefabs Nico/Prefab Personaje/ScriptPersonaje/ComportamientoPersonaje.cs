@@ -5,6 +5,8 @@ using UnityEngine;
 public class ComportamientoPersonaje : MonoBehaviour
 {
 
+    public GameObject camaraPersonaje;
+
     public float velocidadMovimiento = 5.0f;
     public float velocidadRotacion = 200.0f;
     private Animator anim;
@@ -15,7 +17,8 @@ public class ComportamientoPersonaje : MonoBehaviour
     public float fuerzaDeSalto = 5f;
     public bool puedoSaltar;
 
-
+    public float velocidadInicial;
+    public float velocidadAgachado;
 
 
     // Start is called before the first frame update
@@ -23,6 +26,8 @@ public class ComportamientoPersonaje : MonoBehaviour
     {
         puedoSaltar = false;
         anim = GetComponent<Animator>();
+        velocidadInicial = velocidadMovimiento;
+        velocidadAgachado = velocidadMovimiento * 0.5f;
     }
     
 
@@ -49,6 +54,18 @@ public class ComportamientoPersonaje : MonoBehaviour
                 anim.SetBool("salte", true);
                 rb.AddForce(new Vector3(0, fuerzaDeSalto, 0), ForceMode.Impulse);
             }
+
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                anim.SetBool("agachado", true);
+                velocidadMovimiento = velocidadAgachado;
+            } 
+            else 
+            {
+                anim.SetBool("agachado", false);
+                velocidadMovimiento = velocidadInicial;
+            }
+
             anim.SetBool("tocoSuelo", true);
         } 
         else
