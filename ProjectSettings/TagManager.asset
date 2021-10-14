@@ -12,6 +12,7 @@ TagManager:
   - ArmaPortal
   - PlayerCamera
   - Laser
+  - Suelo
   layers:
   - Default
   - TransparentFX
