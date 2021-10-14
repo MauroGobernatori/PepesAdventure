@@ -7,6 +7,7 @@ public class ComportamientoBala : MonoBehaviour
 
     public float velocidad = 20.0f;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,7 @@ public class ComportamientoBala : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * velocidad * Time.deltaTime);
+        
     }
 
     void OnCollisionEnter(Collision other){
