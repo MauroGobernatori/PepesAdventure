@@ -47,37 +47,6 @@ public class EGA_DemoLasers2 : MonoBehaviour
         Instance.gameObject.GetComponent<CapsuleCollider>().center = new Vector3(0,0,15);
         Instance.transform.parent = transform;
         LaserScript = Instance.GetComponent<EGA_Laser>();
-        /*
-        //Enable lazer
-        if (Input.GetMouseButtonDown(0))
-        {
-            Destroy(Instance);
-            Instance = Instantiate(Prefabs[Prefab], FirePoint.transform.position, FirePoint.transform.rotation);
-            Instance.transform.parent = transform;
-            LaserScript = Instance.GetComponent<EGA_Laser>();
-        }
-
-        //Disable lazer prefab
-        if (Input.GetMouseButtonUp(0))
-        {
-            LaserScript.DisablePrepare();
-            Destroy(Instance,1);
-        }
-        */
-        /*
-        //To change lazers
-        if ((Input.GetKey(KeyCode.A) || Input.GetAxis("Horizontal") < 0) && buttonSaver >= 0.4f)// left button
-        {
-            buttonSaver = 0f;
-            Counter(-1);
-        }
-        if ((Input.GetKey(KeyCode.D) || Input.GetAxis("Horizontal") > 0) && buttonSaver >= 0.4f)// right button
-        {
-            buttonSaver = 0f;
-            Counter(+1);         
-        }
-        buttonSaver += Time.deltaTime;
-        */
 
         //Current fire point
         if (Cam != null)

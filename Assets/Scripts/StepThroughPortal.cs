@@ -11,6 +11,7 @@ public class StepThroughPortal : MonoBehaviour
     public GameObject sphere;
 
     private bool invocado = false;
+    private string portalName = null;
 
     // Start is called before the first frame update
     void Start(){
@@ -19,13 +20,7 @@ public class StepThroughPortal : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        if (invocado)
-        {
-            if (sphere.activeInHierarchy)
-            {
 
-            }
-        }
     }
 
     void OnTriggerEnter(Collider other) {
@@ -37,6 +32,8 @@ public class StepThroughPortal : MonoBehaviour
         if (other.gameObject.tag == "Laser")
         {
             invocarLaser();
+            portalName = gameObject.name;
+            Debug.Log(portalName);
         }
     }
 
@@ -51,7 +48,14 @@ public class StepThroughPortal : MonoBehaviour
     void invocarLaser()
     {
         if (invocado) return;
-        if (!sphere.activeInHierarchy) sphere.SetActive(true);
+        if (!sphere.activeInHierarchy)
+        {
+            sphere.SetActive(true);
+            sphere.transform.position = otherPortal.transform.position + Vector3.right / 2;
+            sphere.transform.rotation = otherPortal.transform.rotation;
+            invocado = true;
+            return;
+        }
         sphere = Instantiate(sphere, otherPortal.transform.position + Vector3.right/2, otherPortal.transform.rotation);
         invocado = true;
     }
