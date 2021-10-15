@@ -18,23 +18,23 @@ public class Healt_and_Damage : MonoBehaviour
 
     // Canvas de muerte
     private bool showMuerte = false;
-    private GameObject canvasMuerte;
+    // private GameObject canvasMuerte;
 
     //Canvas Crosshair
     private GameObject crosshair;
 
-    public GameObject sliderVida;
+    // public GameObject sliderVida;
 
-    private void Awake()
-    {
-        crosshair = GameObject.Find("CrossHair");
-        canvasMuerte = GameObject.Find("MenuMuerte");
-        if (canvasMuerte.activeInHierarchy)
-        {
-            // Si la muerte está activo en canvas, desactivarlo
-            canvasMuerte.SetActive(false);
-        }
-    }
+    // private void Awake()
+    // {
+    //     crosshair = GameObject.Find("CrossHair");
+    //     canvasMuerte = GameObject.Find("MenuMuerte");
+    //     if (canvasMuerte.activeInHierarchy)
+    //     {
+    //         // Si la muerte está activo en canvas, desactivarlo
+    //         canvasMuerte.SetActive(false);
+    //     }
+    // }
 
     //Crea una función que si la vida es mayor a 0 y el usuario no se encuentra en un estado de invencibilidad dicha función comenzara a restarle 10 de vida cada 1 seg.
     public void RestarVida(int cantidad) {
@@ -49,23 +49,32 @@ public class Healt_and_Damage : MonoBehaviour
             
             
             if(vida == 0) {
-                GameOver();
+                // GameOver();
             }
         }
     }
 
-    void GameOver() {
-        //Poner aqui script para menu de muerte.
-        showMuerte = !showMuerte;
-        if (showMuerte)
-        {
-            crosshair.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
 
-            canvasMuerte.SetActive(true);
-            showMuerte = !showMuerte;
+    public void RestarVidaTorreta(int cantidad)
+    {
+        if (vida > 0)
+        {
+            vida -= cantidad;
         }
     }
+
+    // void GameOver() {
+    //     //Poner aqui script para menu de muerte.
+    //     showMuerte = !showMuerte;
+    //     if (showMuerte)
+    //     {
+    //         crosshair.SetActive(false);
+    //         Cursor.lockState = CursorLockMode.None;
+
+    //         canvasMuerte.SetActive(true);
+    //         showMuerte = !showMuerte;
+    //     }
+    // }
 
     //Crea una especie de tiempo de invencibilidad para evitar que se le reste vida de la forma default (con cada frame) ya que es demasiado rapida.
     IEnumerator Invulnerabilidad() {

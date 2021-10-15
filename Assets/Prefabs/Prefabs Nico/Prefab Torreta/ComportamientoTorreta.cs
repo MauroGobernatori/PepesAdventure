@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ComportamientoTorreta : MonoBehaviour
 {
+
+/**/
+
     public Transform target;
     public Transform torreta;
     public Transform bala;
@@ -11,14 +14,16 @@ public class ComportamientoTorreta : MonoBehaviour
     public float ultimoDisparo;
     public float frecuenciaDisparo = 2.0f;
 
-    public float tiempoRecarga = 0.0f;
+    public float tiempoDisparo = 0.0f;
+    public float tiempoNoDisparo = 3.0f;
+
+
 
     void Start() {
         ultimoDisparo = Time.time;
     }
 
     void Update(){
-        tiempoRecarga = Time.time;
     }
 
     void OnTriggerStay(Collider other){
@@ -26,18 +31,10 @@ public class ComportamientoTorreta : MonoBehaviour
         if (other.transform == target){
             torreta.transform.LookAt(target);
 
-            if (tiempoRecarga < 8.0f) {
-                if(ultimoDisparo < Time.time){
-                    Instantiate(bala, balaSpawn.position, balaSpawn.rotation);
-                    ultimoDisparo = Time.time + frecuenciaDisparo;
-                }
-                StartCoroutine("TiempoEspera");
+            if(ultimoDisparo < Time.time){
+                Instantiate(bala, balaSpawn.position, balaSpawn.rotation);
+                ultimoDisparo = Time.time + frecuenciaDisparo;
             }
         }
     }
-
-    IEnumerator TiempoEspera(){
-        yield return new WaitForSeconds(3);
-    }
-
 }

@@ -21,6 +21,7 @@ public class ComportamientoPersonaje : MonoBehaviour
     public float velocidadAgachado;
 
 
+
     // Start is called before the first frame update
     void Start()
     {

@@ -2,6 +2,10 @@
 
 public class FirstPersonLook : MonoBehaviour
 {
+
+    private Vector3 vectorcamara;
+
+
     [SerializeField]
     Transform character;
     public float sensitivity = 2;
@@ -35,5 +39,6 @@ public class FirstPersonLook : MonoBehaviour
         // Rotate camera up-down and controller left-right from velocity.
         transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
         character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
+
     }
 }
