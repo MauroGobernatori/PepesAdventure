@@ -16,11 +16,16 @@ public class levantaPlat : MonoBehaviour
     [SerializeField] private GameObject cube2;
     [SerializeField] private GameObject cube3;
 
+    [SerializeField] private GameObject platform1;
+    [SerializeField] private GameObject platform2;
+    [SerializeField] private GameObject platform3;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Laser")
         {
             if (subirPlats) return;
+            if (bajarPlats) return;
             subirPlats = true;
         }
     }
@@ -28,7 +33,6 @@ public class levantaPlat : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("Saliendo");
-        /*
         subirPlats = false;
         bajarPlats = true;
         cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -43,7 +47,6 @@ public class levantaPlat : MonoBehaviour
         cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-        */
     }
 
     private void OnTriggerStay(Collider other)
@@ -70,6 +73,14 @@ public class levantaPlat : MonoBehaviour
         }
         if (subirPlats)
         {
+            if (platform1.transform.position.y >= 11.5 && platform2.transform.position.y >= 11.5 && platform3.transform.position.y >= 11.5) return;
+            platform1.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            platform2.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            platform3.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+        }
+
+        if (subirPlats)
+        {
             if (cylinder1.transform.localScale.y >= 12.4 && cylinder2.transform.localScale.y >= 12.4 && cylinder3.transform.localScale.y >= 12.4) return;
             cylinder1.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             cylinder2.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
@@ -77,7 +88,11 @@ public class levantaPlat : MonoBehaviour
         }
         if (bajarPlats)
         {
-            if (cylinder1.transform.localScale.y <= 1 && cylinder2.transform.localScale.y <= 1 && cylinder3.transform.localScale.y <= 1) return;
+            if (cylinder1.transform.localScale.y <= 1 && cylinder2.transform.localScale.y <= 1 && cylinder3.transform.localScale.y <= 1)
+            {
+                bajarPlats = false;
+                return;
+            }
             cylinder1.transform.localScale -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             cylinder2.transform.localScale -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             cylinder3.transform.localScale -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;

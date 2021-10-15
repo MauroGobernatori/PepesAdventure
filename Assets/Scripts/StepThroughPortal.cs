@@ -48,7 +48,7 @@ public class StepThroughPortal : MonoBehaviour
             {
                 capsuleCollider.height = 0;
             }
-            desinvocarLaser();
+            Invoke("desinvocarLaser", 1);
         }
     }
 
@@ -73,8 +73,7 @@ public class StepThroughPortal : MonoBehaviour
     }
 
     void desinvocarLaser()
-    {
-        sphere.SetActive(false);
+    {sphere.SetActive(false);
         invocado = false;
     }
 }
