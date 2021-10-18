@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Esta clase es el enum de los objetos "sagrados", que van a ser tomados por cada objeto sagrado de la escena
 public class Item {
     public enum ItemType
     {
@@ -13,6 +14,7 @@ public class Item {
     }
     public ItemType itemType;
 
+    // Esta función toma los scripts de cada objeto
     public Sprite getSprite()
     {
         switch (itemType)

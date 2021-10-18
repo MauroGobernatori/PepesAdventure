@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este es un inventario de objetos "sagrados", tiene una lista de Item
 public class Inventory{
 
     public List<Item> itemList;

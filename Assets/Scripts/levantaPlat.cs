@@ -13,9 +13,9 @@ public class levantaPlat : MonoBehaviour
     private bool subirPlats = false;
     private bool bajarPlats = false;
     // Tomar las plataformas que tienen que subir/bajar
-    [SerializeField] private GameObject platform1;
-    [SerializeField] private GameObject platform2;
-    [SerializeField] private GameObject platform3;
+    [SerializeField] private GameObject platform1 = null;
+    [SerializeField] private GameObject platform2 = null;
+    [SerializeField] private GameObject platform3 = null;
 
     // Capaz algun cambio de esto sea de ponerle un array, para que a cada panel se le puedan poner cantidades diferentes de plataformas
 
