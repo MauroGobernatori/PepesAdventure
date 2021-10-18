@@ -31,7 +31,7 @@ public class EGA_DemoLasers2 : MonoBehaviour
         if (Screen.dpi < 1) windowDpi = 1;
         if (Screen.dpi < 200) windowDpi = 1;
         else windowDpi = Screen.dpi / 200f;
-        Counter(0);
+        //Counter(0);
     }
 
     void Update()
@@ -48,32 +48,8 @@ public class EGA_DemoLasers2 : MonoBehaviour
         Instance.gameObject.GetComponent<CapsuleCollider>().center = new Vector3(0,0,17.5f);
         Instance.transform.parent = transform;
         LaserScript = Instance.GetComponent<EGA_Laser>();
-
-        //Current fire point
-        if (Cam != null)
-        {
-            RaycastHit hit; //DELATE THIS IF YOU WANT USE LASERS IN 2D
-            var mousePos = Input.mousePosition;
-            RayMouse = Cam.ScreenPointToRay(mousePos);
-            //ADD THIS IF YOU WANNT TO USE LASERS IN 2D: RaycastHit2D hit = Physics2D.Raycast(RayMouse.origin, RayMouse.direction, MaxLength);
-            if (Physics.Raycast(RayMouse.origin, RayMouse.direction, out hit, MaxLength)) //CHANGE THIS IF YOU WANT TO USE LASERRS IN 2D: if (hit.collider != null)
-            {
-                RotateToMouseDirection(gameObject, hit.point);
-                //LaserEndPoint = hit.point;
-            }
-            else
-            {
-                var pos = RayMouse.GetPoint(MaxLength);
-                RotateToMouseDirection(gameObject, pos);
-                //LaserEndPoint = pos;
-            }
-        }
-        else
-        {
-            //Debug.Log("No camera");
-        }
     }
-
+    /*
     //To change prefabs (count - prefab number)
     void Counter(int count)
     {
@@ -95,4 +71,5 @@ public class EGA_DemoLasers2 : MonoBehaviour
         rotation = Quaternion.LookRotation(direction);     
         obj.transform.localRotation = Quaternion.Lerp(obj.transform.rotation, rotation, 1);
     }
+    */
 }

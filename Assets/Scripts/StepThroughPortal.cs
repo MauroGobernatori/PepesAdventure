@@ -15,16 +15,6 @@ public class StepThroughPortal : MonoBehaviour
 
     private Component[] array;
 
-    // Start is called before the first frame update
-    void Start(){
-        
-    }
-
-    // Update is called once per frame
-    void Update(){
-
-    }
-
     void OnTriggerEnter(Collider other) {
         //Debug.Log("Something hit the portal");
         if(other.tag == "Player" || other.tag == "CubitoRigidBody") {

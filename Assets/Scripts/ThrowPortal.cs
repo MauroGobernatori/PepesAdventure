@@ -40,6 +40,9 @@ public class ThrowPortal : MonoBehaviour
         if(Physics.Raycast(ray, out hit)) {
             if (hit.collider.tag == "NoPortal") return;
             if (hit.collider.tag == "Lava") return;
+            if (hit.collider.tag == "Laser") return;
+            if (hit.collider.tag == "Collectable") return;
+            if (hit.collider.tag == "NoPortal") return;
             Quaternion hitObjectRotation = Quaternion.LookRotation(hit.normal);
             portal.transform.position = hit.point;
             portal.transform.rotation = hitObjectRotation;

@@ -30,15 +30,6 @@ public class Player : MonoBehaviour
     private GameObject grabbing;
     private GameObject puntoAgarre;
 
-    //Probando subir la platform
-    private bool pruebaPlat = false;
-    [SerializeField] private GameObject cylinder1;
-    [SerializeField] private GameObject cylinder2;
-    [SerializeField] private GameObject cylinder3;
-    [SerializeField] private GameObject cube1;
-    [SerializeField] private GameObject cube2;
-    [SerializeField] private GameObject cube3;
-
     // Probando pasar la vida
     public float vida = 100;
 
@@ -108,30 +99,10 @@ public class Player : MonoBehaviour
                 ungrabInput = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            pruebaPlat = true;
-        }
     }
 
     private void FixedUpdate()
     {
-        //Para que no reboten las plataformas (No se por qué rebotaban a veces)
-        if (cube1.transform.position.y >= 29.656f)
-        {
-            cube1.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            cube1.transform.position = new Vector3(cube1.transform.position.x, 29.656f , cube1.transform.position.z);
-        }
-        if (cube2.transform.position.y >= 29.656f)
-        {
-            cube2.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            cube2.transform.position = new Vector3(cube2.transform.position.x, 29.656f, cube2.transform.position.z);
-        }
-        if (cube3.transform.position.y >= 29.656f)
-        {
-            cube3.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-            cube3.transform.position = new Vector3(cube3.transform.position.x, 29.656f, cube3.transform.position.z);
-        }
         if (grabInput)
         {
             int x = Screen.width / 2;
@@ -168,14 +139,6 @@ public class Player : MonoBehaviour
         if (ungrabInput)
         {
             released();
-        }
-
-        if (pruebaPlat)
-        {
-            cylinder1.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
-            cylinder2.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
-            cylinder3.transform.localScale += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
-            if (cylinder1.transform.localScale.y >= 12.4 && cylinder2.transform.localScale.y >= 12.4 && cylinder3.transform.localScale.y >= 12.4) pruebaPlat = false;
         }
     }
 
