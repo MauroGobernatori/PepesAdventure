@@ -14,16 +14,26 @@ public class ComportamientoTorreta : MonoBehaviour
     public float ultimoDisparo;
     public float frecuenciaDisparo = 2.0f;
 
-    public float tiempoDisparo = 0.0f;
-    public float tiempoNoDisparo = 3.0f;
+    public float tiempoDisparo = 0;
+    
 
 
 
     void Start() {
         ultimoDisparo = Time.time;
+        
+        
     }
 
-    void Update(){
+    void Update()
+    {
+        tiempoDisparo = Time.time;
+        Debug.Log(tiempoDisparo);
+        if (tiempoDisparo % 8 == 0) 
+        {
+            StartCoroutine("RecargandoTorreta");
+            
+        }
     }
 
     void OnTriggerStay(Collider other){
@@ -37,4 +47,12 @@ public class ComportamientoTorreta : MonoBehaviour
             }
         }
     }
+
+    IEnumerator RecargandoTorreta()
+    {
+        yield return new WaitForSeconds(3);
+        Debug.Log("Torreta Recargando");
+    }
+
+
 }
