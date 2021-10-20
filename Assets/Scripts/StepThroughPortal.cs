@@ -13,15 +13,7 @@ public class StepThroughPortal : MonoBehaviour
     private bool invocado = false;
     private string portalName = null;
 
-    // Start is called before the first frame update
-    void Start(){
-        
-    }
-
-    // Update is called once per frame
-    void Update(){
-
-    }
+    private Component[] array;
 
     void OnTriggerEnter(Collider other) {
         //Debug.Log("Something hit the portal");
@@ -33,7 +25,7 @@ public class StepThroughPortal : MonoBehaviour
         {
             invocarLaser();
             portalName = gameObject.name;
-            Debug.Log(portalName);
+            //Debug.Log(portalName);
         }
     }
 
@@ -41,7 +33,12 @@ public class StepThroughPortal : MonoBehaviour
     {
         if (other.gameObject.tag == "Laser")
         {
-            desinvocarLaser();
+            array = sphere.GetComponentsInChildren<CapsuleCollider>();
+            foreach (CapsuleCollider capsuleCollider in array)
+            {
+                capsuleCollider.height = 0;
+            }
+            Invoke("desinvocarLaser", 1);
         }
     }
 
@@ -51,6 +48,11 @@ public class StepThroughPortal : MonoBehaviour
         if (!sphere.activeInHierarchy)
         {
             sphere.SetActive(true);
+            array = sphere.GetComponentsInChildren<CapsuleCollider>();
+            foreach (CapsuleCollider capsuleCollider in array)
+            {
+                capsuleCollider.height = 35;
+            }
             sphere.transform.position = otherPortal.transform.position + Vector3.right / 2;
             sphere.transform.rotation = otherPortal.transform.rotation;
             invocado = true;
@@ -61,8 +63,7 @@ public class StepThroughPortal : MonoBehaviour
     }
 
     void desinvocarLaser()
-    {
-        sphere.SetActive(false);
+    {sphere.SetActive(false);
         invocado = false;
     }
 }

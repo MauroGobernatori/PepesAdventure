@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 551259741}
   - component: {fileID: 551259740}
   - component: {fileID: 551259739}
+  - component: {fileID: 551259742}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -542,7 +543,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.18
+  m_Radius: 0.3
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &551259740
 MeshRenderer:
@@ -593,6 +594,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551259737}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &551259742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551259737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6da39693f1ed841a6daf004b8ca85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: LevelMauro
 --- !u!1 &556349861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,12 +2404,6 @@ MonoBehaviour:
   uiInventory: {fileID: 1622655822}
   grabbingDistance: 12
   grabbingInput: 0
-  cylinder1: {fileID: 0}
-  cylinder2: {fileID: 0}
-  cylinder3: {fileID: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
-  cube3: {fileID: 0}
   vida: 100
   tiempo_invencible: 1
   tiempo_frenado: 0.2

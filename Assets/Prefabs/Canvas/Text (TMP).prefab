@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Healt
+  m_text: Health
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d0caedb6395e6e64fac025ad31df3a7c, type: 2}
   m_sharedMaterial: {fileID: 3066699218993018655, guid: d0caedb6395e6e64fac025ad31df3a7c, type: 2}

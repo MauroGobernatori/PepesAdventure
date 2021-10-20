@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script 
 public class Inventario : MonoBehaviour
 {
 
