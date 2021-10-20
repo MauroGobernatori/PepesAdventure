@@ -5,7 +5,10 @@ using UnityEngine;
 public class ComportamientoTorreta : MonoBehaviour
 {
 
-/**/
+/*
+Este script se encarga de manipular el comportamiento de la torreta, asignandole un objetivo, balas, spawns de balas y demas. Cada vez que el usuario entra dentro del rango
+de disparo de la torreta ésta instancia el prefab de la bala y con el lookAt dirige la bala al objetivo.
+*/
 
     public Transform target;
     public Transform torreta;
@@ -14,7 +17,7 @@ public class ComportamientoTorreta : MonoBehaviour
     public float ultimoDisparo;
     public float frecuenciaDisparo = 2.0f;
 
-    public float tiempoDisparo = 0;
+    // public float tiempoDisparo = 0;
     
 
 
@@ -25,16 +28,16 @@ public class ComportamientoTorreta : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        tiempoDisparo = Time.time;
-        Debug.Log(tiempoDisparo);
-        if (tiempoDisparo % 8 == 0) 
-        {
-            StartCoroutine("RecargandoTorreta");
+    // void Update()
+    // {
+    //     tiempoDisparo = Time.time;
+    //     Debug.Log(tiempoDisparo);
+    //     if (tiempoDisparo % 8 == 0) 
+    //     {
+    //         StartCoroutine("RecargandoTorreta");
             
-        }
-    }
+    //     }
+    // }
 
     void OnTriggerStay(Collider other){
         
@@ -48,11 +51,11 @@ public class ComportamientoTorreta : MonoBehaviour
         }
     }
 
-    IEnumerator RecargandoTorreta()
-    {
-        yield return new WaitForSeconds(3);
-        Debug.Log("Torreta Recargando");
-    }
+    // IEnumerator RecargandoTorreta()
+    // {
+    //     yield return new WaitForSeconds(3);
+    //     Debug.Log("Torreta Recargando");
+    // }
 
 
 }
