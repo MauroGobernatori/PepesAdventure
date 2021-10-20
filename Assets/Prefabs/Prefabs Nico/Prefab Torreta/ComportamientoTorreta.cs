@@ -32,8 +32,7 @@ public class ComportamientoTorreta : MonoBehaviour
     {
         tiempoDisparo = Time.time;
         Debug.Log(Mathf.Floor(Time.time % 60 ) % 4 );
-        // Debug.Log(tiempoDisparo);
-        if (Mathf.Floor(Time.time % 60 ) % 4 == 1)
+        if (Mathf.Floor(Time.time % 120 ) % 8 == 1)
         {
             dispara = !dispara;
             Debug.Log(dispara);
