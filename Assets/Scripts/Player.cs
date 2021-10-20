@@ -42,15 +42,19 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        
+
+    }
+
+    private void Start()
+    {
+        canvasMuerte = GameObject.Find("MenuMuerte");
+        canvasInventory = GameObject.Find("UI_Inventory");
+
         puntoAgarre = GameObject.Find("puntoAgarre");
         grabbing = GameObject.Find("Grabbing");
         crosshair = GameObject.Find("CrossHair");
-        canvasInventory = GameObject.Find("UI_Inventory");
-        if (canvasInventory.activeInHierarchy)
-        {
-            // Si el inventario está activo en canvas, desactivarlo
-            canvasInventory.SetActive(false);
-        }
+
 
         // Obtiene el inventario, vacío en la primer escena, con objetos las siguientes escenas
         inventory = GameObject.FindGameObjectWithTag("Inventario").GetComponent<Inventario>();
@@ -59,15 +63,14 @@ public class Player : MonoBehaviour
         // Obtener la cámara para ver donde apunto
         camera = GameObject.FindWithTag("PlayerCamera");
 
-        canvasMuerte = GameObject.Find("MenuMuerte");
-        
-    }
-
-    private void Start()
-    {
+        if (canvasInventory.activeInHierarchy)
+        {
+            // Si el inventario está activo en canvas, desactivarlo
+            canvasInventory.SetActive(false);
+        }
         if (canvasMuerte.activeInHierarchy)
         {
-            // Si la muerte está activo en canvas, desactivarlo
+            // Si la muerte está activa en canvas, desactivarla
             canvasMuerte.SetActive(false);
         }
     }
