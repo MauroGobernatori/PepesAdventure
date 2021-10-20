@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/*
+Este script se encarga de destruir la bala una vez que esta impacta con el objetivo o se va del mapa.
+*/
+
 public class ComportamientoBala : MonoBehaviour
 {
 
