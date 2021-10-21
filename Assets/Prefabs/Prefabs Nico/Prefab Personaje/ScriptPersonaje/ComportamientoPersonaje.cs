@@ -5,8 +5,6 @@ using UnityEngine;
 public class ComportamientoPersonaje : MonoBehaviour
 {
 
-    public GameObject camaraPersonaje;
-
     public float velocidadMovimiento = 5.0f;
     public float velocidadRotacion = 200.0f;
     private Animator anim;

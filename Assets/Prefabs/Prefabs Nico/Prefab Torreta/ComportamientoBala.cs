@@ -17,7 +17,6 @@ public class ComportamientoBala : MonoBehaviour
     private int[] limitesMapa = new int[2] { 200, -200 };
 
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.forward * velocidad * Time.deltaTime);
