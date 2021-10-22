@@ -14,12 +14,14 @@ public class ComportamientoBala : MonoBehaviour
     public int cantidad = 10;
 
 
-    private int[] limitesMapa = new int[2] { 200, -200 };
+    private int[] limitesMapa = new int[2] { 500, -500 };
 
 
     void Update()
     {
         transform.Translate(Vector3.forward * velocidad * Time.deltaTime);
+
+        
         if (gameObject.transform.position.x >= limitesMapa[0] || gameObject.transform.position.x <= limitesMapa[1] || gameObject.transform.position.y >= limitesMapa[0]
         || gameObject.transform.position.y <= limitesMapa[1] || gameObject.transform.position.z >= limitesMapa[0] || gameObject.transform.position.z <= limitesMapa[1])
         {
@@ -35,7 +37,7 @@ public class ComportamientoBala : MonoBehaviour
         {
             Debug.Log("La bala choco con el player");
             Destroy(gameObject, 0.5f);
-            other.gameObject.GetComponent<Healt_and_Damage>().RestarVidaTorreta(cantidad);
+            other.gameObject.GetComponent<Player>().RestarVidaTorreta(cantidad);
         }
     }
 }

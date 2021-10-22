@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        
+
 
     }
 
@@ -111,13 +111,13 @@ public class Player : MonoBehaviour
             int x = Screen.width / 2;
             int y = Screen.height / 2;
 
-            Ray ray = camera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
+            Ray ray = camera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y));
             RaycastHit hit;
 
             Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
-            if(Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))
             {
-                if(hit.transform.gameObject.GetComponent<cajaMovible>())
+                if (hit.transform.gameObject.GetComponent<cajaMovible>())
                 {
                     if (hit.distance < grabbingDistance)
                     {
@@ -197,7 +197,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Laser")
+        if (other.gameObject.tag == "Laser")
         {
             RestarVida(100f);
         }
@@ -253,4 +253,20 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(tiempo_frenado);
         GetComponent<FirstPersonMovement>().speed = velocidadActual;
     }
+    public void RestarVidaTorreta(int cantidad)
+    {
+        if (vida > 0)
+        {
+            vida -= cantidad;
+            if (vida == 0)
+            {
+                GameOver();
+            }
+        }
+
+
+    }
+
+
 }
+

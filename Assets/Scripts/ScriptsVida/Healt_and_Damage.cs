@@ -55,13 +55,7 @@ public class Healt_and_Damage : MonoBehaviour
     }
 
 
-    public void RestarVidaTorreta(int cantidad)
-    {
-        if (vida > 0)
-        {
-            vida -= cantidad;
-        }
-    }
+    
 
     // void GameOver() {
     //     //Poner aqui script para menu de muerte.

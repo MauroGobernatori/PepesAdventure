@@ -46,11 +46,14 @@ public class ComportamientoTorreta : MonoBehaviour
         if (other.transform == target)
         {
             torreta.transform.LookAt(target);
+                Debug.Log("TargetIF");
 
             if (dispara)
             {
+                Debug.Log("DisparaIf");
                 if (ultimoDisparo < Time.time)
                 {
+                    Debug.Log("UltimoDisparoIF");
                     Instantiate(bala, balaSpawn.position, balaSpawn.rotation);
                     ultimoDisparo = Time.time + frecuenciaDisparo;
                 }
