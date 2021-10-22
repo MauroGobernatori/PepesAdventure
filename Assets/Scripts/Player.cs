@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     // Canvas de muerte
     private bool showMuerte = false;
     private GameObject canvasMuerte;
+    private GameObject canvasVida;
 
     //Canvas Crosshair
     private GameObject crosshair;
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
     {
         canvasMuerte = GameObject.Find("MenuMuerte");
         canvasInventory = GameObject.Find("UI_Inventory");
+        canvasVida = GameObject.Find("Vida");
 
         puntoAgarre = GameObject.Find("puntoAgarre");
         grabbing = GameObject.Find("Grabbing");
@@ -231,9 +233,9 @@ public class Player : MonoBehaviour
             canvasMuerte.SetActive(true);
             showMuerte = !showMuerte;
 
-            GetComponent<FirstPersonMovement>().enabled = false;
-            GetComponent<Jump>().enabled = false;
-            GetComponent<Crouch>().enabled = false;
+            canvasVida.SetActive(false);
+
+            GetComponent<ComportamientoPersonaje>().enabled = false;
         }
     }
 

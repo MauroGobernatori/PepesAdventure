@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CanvasControlador : MonoBehaviour
 {
 
     private GameObject player;
     private GameObject respawn;
+    private GameObject canvasVida;
 
     private GameObject canvasMuerte;
     private GameObject crosshair;
@@ -17,6 +19,7 @@ public class CanvasControlador : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         respawn = GameObject.Find("SpawnPoint");
         crosshair = GameObject.Find("CrossHair");
+        canvasVida = GameObject.Find("Vida");
     }
     public void respawnPlayer()
     {
@@ -28,6 +31,10 @@ public class CanvasControlador : MonoBehaviour
         {
             canvasMuerte.SetActive(false);
         }
+        if (!canvasVida.activeInHierarchy)
+        {
+            canvasVida.SetActive(true);
+        }
         if (!crosshair.activeInHierarchy)
         {
             crosshair.SetActive(true);
@@ -35,4 +42,10 @@ public class CanvasControlador : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         player.GetComponent<Player>().vida = 100;
     }
+
+    public void MenuRedirect()
+    {
+        SceneManager.LoadScene("Menub");
+    }
+
 }
