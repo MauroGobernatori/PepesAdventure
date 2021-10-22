@@ -24,9 +24,7 @@ public class CanvasControlador : MonoBehaviour
     public void respawnPlayer()
     {
         player.transform.position = respawn.transform.position;
-        player.GetComponent<FirstPersonMovement>().enabled = true;
-        player.GetComponent<Jump>().enabled = true;
-        player.GetComponent<Crouch>().enabled = true;
+        player.GetComponent<ComportamientoPersonaje>().enabled = true;
         if (canvasMuerte.activeInHierarchy)
         {
             canvasMuerte.SetActive(false);

@@ -22,6 +22,7 @@ public class LevantarArma : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "ArmaPortal"){
+            Debug.Log("AgarraArma");
             armaEnSuelo.SetActive(false);
             armaJugador.SetActive(true);
         }
