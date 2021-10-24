@@ -65,8 +65,6 @@ public class Player : MonoBehaviour
         // Obtener la cámara para ver donde apunto
         camera = GameObject.FindWithTag("PlayerCamera");
 
-        Debug.Log(canvasInventory);
-
         if (canvasInventory.activeInHierarchy)
         {
             // Si el inventario está activo en canvas, desactivarlo

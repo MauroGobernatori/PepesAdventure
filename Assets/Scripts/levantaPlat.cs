@@ -16,6 +16,11 @@ public class levantaPlat : MonoBehaviour
     [SerializeField] private GameObject platform1 = null;
     [SerializeField] private GameObject platform2 = null;
     [SerializeField] private GameObject platform3 = null;
+    // Dos bool para decirle a la pared si subir o bajar
+    private bool subirPared = false;
+    private bool bajarPared = false;
+    // Tomar la pared
+    [SerializeField] private GameObject pared1 = null;
 
     // Capaz algun cambio de esto sea de ponerle un array, para que a cada panel se le puedan poner cantidades diferentes de plataformas
 
@@ -23,6 +28,7 @@ public class levantaPlat : MonoBehaviour
     {
         if (other.tag == "Laser")
         {
+            descenderPared();
             if (subirPlats) return;
             if (bajarPlats) return;
             subirPlats = true;
@@ -47,6 +53,7 @@ public class levantaPlat : MonoBehaviour
 
         if (bajarPlats)
         {
+            levantarPared();
             if (platform1.transform.position.y <=0 && platform2.transform.position.y <= 0 && platform3.transform.position.y <=0)
             {
                 bajarPlats = false;
@@ -56,5 +63,17 @@ public class levantaPlat : MonoBehaviour
             platform2.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             platform3.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
         }
+    }
+
+    private void descenderPared()
+    {
+        if (pared1.transform.position.y <= 35) return;
+        pared1.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime;
+    }
+
+    private void levantarPared()
+    {
+        if (pared1.transform.position.y >= 42) return;
+        pared1.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime;
     }
 }

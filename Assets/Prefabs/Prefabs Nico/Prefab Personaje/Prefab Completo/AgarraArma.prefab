@@ -61,6 +61,36 @@ Transform:
   m_Father: {fileID: 8439072178699631819}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &491701810898918373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3728450799861367092}
+  m_Layer: 0
+  m_Name: puntoAgarre
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3728450799861367092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491701810898918373}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -27.134542, y: 3.1324375, z: 11.417633}
+  m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
+  m_Children: []
+  m_Father: {fileID: 3537823252630474727}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &749809003714706704
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +893,7 @@ GameObject:
   - component: {fileID: 7709097461802027096}
   - component: {fileID: 7709097461802027103}
   m_Layer: 0
-  m_Name: Personaje1 Arma 1
+  m_Name: AgarraArma
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -883,6 +913,7 @@ Transform:
   - {fileID: 8486468517771891297}
   - {fileID: 6747310198577400471}
   - {fileID: 2878382537841872196}
+  - {fileID: 3728450799861367092}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -1292,6 +1323,20 @@ MonoBehaviour:
   character: {fileID: 3537823252630474727}
   sensitivity: 2
   smoothing: 1.5
+--- !u!114 &4456793764831424063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457642706576539379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1138fb1fb701346b2d8e42627e036d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftPortal: {fileID: 0}
+  rightPortal: {fileID: 0}
 --- !u!1 &4875451120219019178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,20 +2111,6 @@ Transform:
   m_Father: {fileID: 6747310198577400471}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4456793764831424063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4457642706576539379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1138fb1fb701346b2d8e42627e036d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftPortal: {fileID: 0}
-  rightPortal: {fileID: 0}
 --- !u!1 &7787188266845388315
 GameObject:
   m_ObjectHideFlags: 0

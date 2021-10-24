@@ -8,21 +8,8 @@ public class LevantarArma : MonoBehaviour
     public GameObject armaEnSuelo;
     public GameObject armaJugador;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "ArmaPortal"){
-            Debug.Log("AgarraArma");
             armaEnSuelo.SetActive(false);
             armaJugador.SetActive(true);
         }
