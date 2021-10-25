@@ -8,7 +8,7 @@ public class LogicaPies : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Suelo")
+        if (other.tag == "Suelo" || other.tag == "Lava")
         {
             comportamientoPersonaje.puedoSaltar = true;
         }
@@ -16,7 +16,7 @@ public class LogicaPies : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Suelo")
+        if (other.tag == "Suelo" || other.tag == "Lava")
         {
             comportamientoPersonaje.puedoSaltar = false;
         }

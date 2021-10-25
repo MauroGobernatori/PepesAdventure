@@ -204,6 +204,8 @@ public class Player : MonoBehaviour
             RestarVida(100f);
         }
     }
+    
+    
 
     // Funciones de la vida
     public void RestarVida(float cantidad)
