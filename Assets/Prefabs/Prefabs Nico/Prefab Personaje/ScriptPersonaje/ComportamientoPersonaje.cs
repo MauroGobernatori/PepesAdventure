@@ -58,11 +58,13 @@ public class ComportamientoPersonaje : MonoBehaviour
             {
                 anim.SetBool("agachado", true);
                 velocidadMovimiento = velocidadAgachado;
+                gameObject.GetComponent<CapsuleCollider>().height = 1.5f;
             } 
             else 
             {
                 anim.SetBool("agachado", false);
                 velocidadMovimiento = velocidadInicial;
+                gameObject.GetComponent<CapsuleCollider>().height = 1.9f;
             }
 
             anim.SetBool("tocoSuelo", true);

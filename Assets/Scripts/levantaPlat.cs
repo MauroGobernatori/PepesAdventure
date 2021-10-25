@@ -16,9 +16,6 @@ public class levantaPlat : MonoBehaviour
     [SerializeField] private GameObject platform1 = null;
     [SerializeField] private GameObject platform2 = null;
     [SerializeField] private GameObject platform3 = null;
-    // Dos bool para decirle a la pared si subir o bajar
-    private bool subirPared = false;
-    private bool bajarPared = false;
     // Tomar la pared
     [SerializeField] private GameObject pared1 = null;
 

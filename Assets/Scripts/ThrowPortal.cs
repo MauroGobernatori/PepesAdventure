@@ -38,6 +38,7 @@ public class ThrowPortal : MonoBehaviour
         RaycastHit hit;
 
         if(Physics.Raycast(ray, out hit)) {
+            if (hit.collider.tag != "Portable") return;
             if (hit.collider.tag == "NoPortal") return;
             if (hit.collider.tag == "Lava") return;
             if (hit.collider.tag == "Laser") return;
