@@ -12,26 +12,28 @@ public class activateButton : MonoBehaviour
 
     [SerializeField] private GameObject door = null;
 
+    private GameObject objeto = null;
+
     private void FixedUpdate()
     {
         if (bajarBoton)
         {
-            if(transform.localPosition.y <= -0.46)
+            if(abrirPuerta)
             {
-                abrirPuerta = true;
-                bajarBoton = false;
                 return;
             }
-            transform.localPosition -= new Vector3(0, 1.1f, 0) * Time.deltaTime;
+            abrirPuerta = true;
+            transform.position -= new Vector3(0, 1.1f, 0) * Time.deltaTime;
         }
         if (abrirPuerta)
         {
+            Debug.Log("Hola");
             if (door.transform.localPosition.x >= -182)
             {
                 abrirPuerta = false;
                 return;
             }
-            door.transform.localPosition += new Vector3(1.1f, 0, 0) * Time.deltaTime;
+            door.transform.position += new Vector3(1.1f, 0, 0) * Time.deltaTime;
         }
         if (subirBoton)
         {
@@ -40,7 +42,7 @@ public class activateButton : MonoBehaviour
                 subirBoton = false;
                 return;
             }
-            transform.localPosition += new Vector3(0, 1.1f, 0) * Time.deltaTime;
+            transform.position += new Vector3(0, 1.1f, 0) * Time.deltaTime;
         }
         if (cerrarPuerta)
         {
@@ -49,7 +51,7 @@ public class activateButton : MonoBehaviour
                 cerrarPuerta = false;
                 return;
             }
-            door.transform.localPosition -= new Vector3(1.1f, 0, 0) * Time.deltaTime;
+            door.transform.position -= new Vector3(1.1f, 0, 0) * Time.deltaTime;
         }
     }
 
@@ -65,6 +67,7 @@ public class activateButton : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<cajaMovible>().isActiveAndEnabled)
         {
+            bajarBoton = false;
             subirBoton = true;
             cerrarPuerta = true;
         }
