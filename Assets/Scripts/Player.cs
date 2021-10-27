@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
     //private GameObject jugador;
     [SerializeField] private float tiempo_invencible = 1f;
     [SerializeField] private float tiempo_frenado = 0.2f;
+
+    public GameObject sliderVida;
 
 
 
@@ -79,6 +82,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        var sliderVidaValue = sliderVida.GetComponent<Slider>();
+
+        sliderVidaValue.value = vida;
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             showInventory = !showInventory;
@@ -211,10 +218,11 @@ public class Player : MonoBehaviour
         if (!invencible && vida > 0)
         {
             vida -= cantidad;
+
             StartCoroutine(Invulnerabilidad());
             StartCoroutine(FrenarVelocidad());
 
-            if (vida == 0)
+            if (vida <= 0)
             {
                 GameOver();
             }

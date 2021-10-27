@@ -14,6 +14,7 @@ TagManager:
   - Laser
   - Suelo
   - Portable
+  - Pared
   layers:
   - Default
   - TransparentFX

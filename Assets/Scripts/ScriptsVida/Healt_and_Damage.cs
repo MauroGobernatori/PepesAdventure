@@ -11,16 +11,12 @@ public class Healt_and_Damage : MonoBehaviour
 {
     public int vida = 100;
     public bool invencible = false;
-
     public GameObject jugador;
     public float tiempo_invencible = 1f;
     public float tiempo_frenado = 0.2f;
 
-    // Canvas de muerte
     private bool showMuerte = false;
-    // private GameObject canvasMuerte;
 
-    //Canvas Crosshair
     private GameObject crosshair;
 
     // public GameObject sliderVida;

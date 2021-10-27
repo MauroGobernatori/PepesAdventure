@@ -22,21 +22,21 @@ public class MoverEscalera : MonoBehaviour
         {
             if (subirEscalera) return;
             if (bajarEscalera) return;
-            subirEscalera = true;
+            bajarEscalera = true;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        subirEscalera = false;
-        bajarEscalera = true;
+        subirEscalera = true;
+        bajarEscalera = false;
     }
 
     private void FixedUpdate()
     {
         if (subirEscalera)
         {
-            if (escalera.transform.position.y >= 63.55) return;
+            if (escalera.transform.localPosition.y >= 5.72) return;
             escalera.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
         }
 

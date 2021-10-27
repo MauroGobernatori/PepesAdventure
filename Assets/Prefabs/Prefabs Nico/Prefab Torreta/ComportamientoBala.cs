@@ -11,23 +11,11 @@ public class ComportamientoBala : MonoBehaviour
 {
 
     public float velocidad = 20.0f;
-    public int cantidad = 10;
-
-
-    private int[] limitesMapa = new int[2] { 500, -500 };
-
+    public int cantidad = 5;
 
     void Update()
     {
         transform.Translate(Vector3.forward * velocidad * Time.deltaTime);
-
-
-        // if (gameObject.transform.position.x >= limitesMapa[0] || gameObject.transform.position.x <= limitesMapa[1] || gameObject.transform.position.y >= limitesMapa[0]
-        // || gameObject.transform.position.y <= limitesMapa[1] || gameObject.transform.position.z >= limitesMapa[0] || gameObject.transform.position.z <= limitesMapa[1])
-        // {
-        //     Debug.Log("La bala salió del mapa");
-        //     Destroy(gameObject);
-        // }
     }
 
 
