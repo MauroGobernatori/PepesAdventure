@@ -34,9 +34,6 @@ public class MoverEscalera : MonoBehaviour
 
     private void FixedUpdate()
     {
-
-        Debug.Log(escalera.transform.position.y);
-
         if (subirEscalera)
         {
             if (escalera.transform.position.y >= 63.55) return;

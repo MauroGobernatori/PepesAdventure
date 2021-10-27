@@ -21,13 +21,13 @@ public class ComportamientoBala : MonoBehaviour
     {
         transform.Translate(Vector3.forward * velocidad * Time.deltaTime);
 
-        
-        if (gameObject.transform.position.x >= limitesMapa[0] || gameObject.transform.position.x <= limitesMapa[1] || gameObject.transform.position.y >= limitesMapa[0]
-        || gameObject.transform.position.y <= limitesMapa[1] || gameObject.transform.position.z >= limitesMapa[0] || gameObject.transform.position.z <= limitesMapa[1])
-        {
-            Debug.Log("La bala salió del mapa");
-            Destroy(gameObject);
-        }
+
+        // if (gameObject.transform.position.x >= limitesMapa[0] || gameObject.transform.position.x <= limitesMapa[1] || gameObject.transform.position.y >= limitesMapa[0]
+        // || gameObject.transform.position.y <= limitesMapa[1] || gameObject.transform.position.z >= limitesMapa[0] || gameObject.transform.position.z <= limitesMapa[1])
+        // {
+        //     Debug.Log("La bala salió del mapa");
+        //     Destroy(gameObject);
+        // }
     }
 
 
@@ -36,8 +36,13 @@ public class ComportamientoBala : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("La bala choco con el player");
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
             other.gameObject.GetComponent<Player>().RestarVidaTorreta(cantidad);
+        }
+        if(other.gameObject.tag == "Suelo" || other.gameObject.tag == "Pared")
+        {
+            Debug.Log("La bala choco con una pared");
+            Destroy(gameObject);
         }
     }
 }
