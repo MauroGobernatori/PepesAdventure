@@ -6,7 +6,7 @@ public class evitarCaidaPlataforma : MonoBehaviour
 {
     public GameObject Player;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if(other.gameObject == Player)
         {
@@ -14,7 +14,7 @@ public class evitarCaidaPlataforma : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other)
     {
         if (other.gameObject == Player)
         {
