@@ -246,6 +246,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.104
       objectReference: {fileID: 0}
+    - target: {fileID: 3623917383616695203, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: rightPortal
+      value: 
+      objectReference: {fileID: 312778099}
+    - target: {fileID: 3623917383616695203, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: leftPortal
+      value: 
+      objectReference: {fileID: 921303111}
     - target: {fileID: 3625311476706646895, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -310,6 +318,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje1 Arma
       objectReference: {fileID: 0}
+    - target: {fileID: 4848108656393322398, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: m_Radius
+      value: 0.16083285
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848108656393322398, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: m_Center.x
+      value: 2.3548797e-16
+      objectReference: {fileID: 0}
     - target: {fileID: 7309127464468786627, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
       propertyPath: armaEnSuelo
       value: 
@@ -322,6 +338,22 @@ PrefabInstance:
       propertyPath: uiInventory
       value: 
       objectReference: {fileID: 1622655822}
+    - target: {fileID: 7369544813388253851, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: m_Height
+      value: 1.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369544813388253851, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: m_Radius
+      value: 0.17144822
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369544813388253851, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: m_Center.x
+      value: 1.0039479e-16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7369544813388253851, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
+      propertyPath: m_Center.y
+      value: 0.92755383
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
 --- !u!1 &301036334
@@ -420,6 +452,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 301036334}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &312778099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6435518693493064495, guid: 7367a2cf2089eb94f862328ce6733128, type: 3}
+  m_PrefabInstance: {fileID: 6435518693738733148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &391048210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1229,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4506929468657232510, guid: 3e1847c9f8c3c4643a15588c0da9942d, type: 3}
   m_PrefabInstance: {fileID: 265099298}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &921303111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6435518692893074971, guid: 7367a2cf2089eb94f862328ce6733128, type: 3}
+  m_PrefabInstance: {fileID: 6435518693738733148}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &926213946
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,8 +1614,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.09
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5784323957973542793, guid: 72aff43f51067474ca01c3d98ec03918, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72aff43f51067474ca01c3d98ec03918, type: 3}
 --- !u!1 &1237172988
 GameObject:
@@ -2108,8 +2149,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.09
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5784323957973542793, guid: 72aff43f51067474ca01c3d98ec03918, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72aff43f51067474ca01c3d98ec03918, type: 3}
 --- !u!114 &1554209753 stripped
 MonoBehaviour:
@@ -3050,8 +3090,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.09
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5784323957973542793, guid: 72aff43f51067474ca01c3d98ec03918, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72aff43f51067474ca01c3d98ec03918, type: 3}
 --- !u!1001 &6435518693738733148
 PrefabInstance:
