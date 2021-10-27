@@ -5,26 +5,21 @@ using UnityEngine;
 public class activateButton : MonoBehaviour
 {
 
-    private bool bajarBoton = false;
-    private bool subirBoton = false;
     private bool abrirPuerta = false;
     private bool cerrarPuerta = false;
 
     [SerializeField] private GameObject door = null;
 
-    private GameObject objeto = null;
+    private Material material;
+
+    private void Start()
+    {
+        material = GetComponent<Renderer>().material;
+        Debug.Log(material);
+    }
 
     private void FixedUpdate()
     {
-        if (bajarBoton)
-        {
-            if(abrirPuerta)
-            {
-                return;
-            }
-            abrirPuerta = true;
-            transform.position -= new Vector3(0, 1.1f, 0) * Time.deltaTime;
-        }
         if (abrirPuerta)
         {
             Debug.Log("Hola");
@@ -34,15 +29,6 @@ public class activateButton : MonoBehaviour
                 return;
             }
             door.transform.position += new Vector3(1.1f, 0, 0) * Time.deltaTime;
-        }
-        if (subirBoton)
-        {
-            if (transform.localPosition.y >= -0.4201205)
-            {
-                subirBoton = false;
-                return;
-            }
-            transform.position += new Vector3(0, 1.1f, 0) * Time.deltaTime;
         }
         if (cerrarPuerta)
         {
@@ -59,7 +45,9 @@ public class activateButton : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<cajaMovible>().isActiveAndEnabled)
         {
-            bajarBoton = true;
+            material.color = Color.green;
+            abrirPuerta = true;
+            cerrarPuerta = false;
         }
     }
 
@@ -67,9 +55,9 @@ public class activateButton : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<cajaMovible>().isActiveAndEnabled)
         {
-            bajarBoton = false;
-            subirBoton = true;
+            material.color = Color.red;
             cerrarPuerta = true;
+            abrirPuerta = false;
         }
     }
 }
