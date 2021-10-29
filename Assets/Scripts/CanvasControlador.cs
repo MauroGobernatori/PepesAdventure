@@ -41,9 +41,9 @@ public class CanvasControlador : MonoBehaviour
         player.GetComponent<Player>().vida = 100;
     }
 
-    public void MenuRedirect()
+    public void quit()
     {
-        SceneManager.LoadScene("Menub");
+        Application.Quit();
     }
 
 }

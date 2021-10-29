@@ -29555,7 +29555,7 @@ PrefabInstance:
       objectReference: {fileID: 1393404488}
     - target: {fileID: 1248431572759438921, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MenuRedirect
+      value: quit
       objectReference: {fileID: 0}
     - target: {fileID: 1248431572952221294, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29656,6 +29656,10 @@ PrefabInstance:
     - target: {fileID: 1248431573710778181, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: respawnPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248431573838561568, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
+      propertyPath: m_Text
+      value: QUIT
       objectReference: {fileID: 0}
     - target: {fileID: 7588738904246483848, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
       propertyPath: m_AnchorMax.x

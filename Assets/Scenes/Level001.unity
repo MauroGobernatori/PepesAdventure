@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf6da39693f1ed841a6daf004b8ca85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: LevelMauro
+  level: LevelMauro 1
 --- !u!1 &556349861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2575,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1554209753}
+    - target: {fileID: 1248431572759438921, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: quit
+      objectReference: {fileID: 0}
     - target: {fileID: 1248431572862562797, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.7
@@ -2675,6 +2679,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1554209753}
+    - target: {fileID: 1248431573838561568, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
+      propertyPath: m_Text
+      value: QUIT
+      objectReference: {fileID: 0}
     - target: {fileID: 7588738904246483848, guid: 0911307869bacbc4485949270f6a27e4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
