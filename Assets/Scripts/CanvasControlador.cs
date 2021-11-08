@@ -17,12 +17,12 @@ public class CanvasControlador : MonoBehaviour
     {
         canvasMuerte = GameObject.Find("MenuMuerte");
         player = GameObject.FindWithTag("Player");
-        respawn = GameObject.Find("SpawnPoint");
         crosshair = GameObject.Find("CrossHair");
         canvasVida = GameObject.Find("Vida");
     }
     public void respawnPlayer()
     {
+        respawn = GameObject.FindWithTag("Respawn");
         player.transform.position = respawn.transform.position;
         player.GetComponent<ComportamientoPersonaje>().enabled = true;
         if (canvasMuerte.activeInHierarchy)

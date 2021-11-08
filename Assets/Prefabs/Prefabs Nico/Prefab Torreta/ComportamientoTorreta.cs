@@ -21,8 +21,6 @@ public class ComportamientoTorreta : MonoBehaviour
 
     public bool dispara = true;
 
-
-
     void Start()
     {
         ultimoDisparo = Time.time;
@@ -34,9 +32,7 @@ public class ComportamientoTorreta : MonoBehaviour
         if (Mathf.Floor(Time.time % 120 ) % 8 == 1)
         {
             dispara = !dispara;
-            Debug.Log(dispara);
-        } 
-
+        }
     }
 
     void OnTriggerStay(Collider other)

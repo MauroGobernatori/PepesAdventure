@@ -15,14 +15,12 @@ public class activateButton : MonoBehaviour
     private void Start()
     {
         material = GetComponent<Renderer>().material;
-        Debug.Log(material);
     }
 
     private void FixedUpdate()
     {
         if (abrirPuerta)
         {
-            Debug.Log("Hola");
             if (door.transform.localPosition.x >= -182)
             {
                 abrirPuerta = false;

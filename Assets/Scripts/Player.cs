@@ -38,17 +38,11 @@ public class Player : MonoBehaviour
     private bool invencible = false;
     //private GameObject jugador;
     [SerializeField] private float tiempo_invencible = 1f;
-    [SerializeField] private float tiempo_frenado = 0.2f;
 
     public GameObject sliderVida;
 
-
-
-    private void Awake()
-    {
-
-
-    }
+    [SerializeField] private GameObject[] spawns;
+    private int spawnCounter = 0;
 
     private void Start()
     {
@@ -182,6 +176,33 @@ public class Player : MonoBehaviour
             }
             uiInventory.setInventory(inventory);
         }
+        if(collision.gameObject.name == "Checkpoint1")
+        {
+            if(spawnCounter < 1)
+            {
+                spawns[0].tag = "Untagged";
+                spawns[1].tag = "Respawn";
+                spawnCounter++;
+            }
+        }
+        if (collision.gameObject.name == "Checkpoint2")
+        {
+            if (spawnCounter < 2)
+            {
+                spawns[1].tag = "Untagged";
+                spawns[2].tag = "Respawn";
+                spawnCounter++;
+            }
+        }
+        if (collision.gameObject.name == "Checkpoint3")
+        {
+            if (spawnCounter < 3)
+            {
+                spawns[2].tag = "Untagged";
+                spawns[3].tag = "Respawn";
+                spawnCounter++;
+            }
+        }
     }
 
     private void grabbed()
@@ -220,7 +241,6 @@ public class Player : MonoBehaviour
             vida -= cantidad;
 
             StartCoroutine(Invulnerabilidad());
-            StartCoroutine(FrenarVelocidad());
 
             if (vida <= 0)
             {
@@ -255,14 +275,6 @@ public class Player : MonoBehaviour
         invencible = false;
     }
 
-    //Guarda en la variable velocidadActual la velocidad con la que el jugador toca la lava.
-    IEnumerator FrenarVelocidad()
-    {
-        var velocidadActual = GetComponent<FirstPersonMovement>().speed;
-        GetComponent<FirstPersonMovement>().speed = 0;
-        yield return new WaitForSeconds(tiempo_frenado);
-        GetComponent<FirstPersonMovement>().speed = velocidadActual;
-    }
     public void RestarVidaTorreta(int cantidad)
     {
         if (vida > 0)
@@ -274,7 +286,5 @@ public class Player : MonoBehaviour
             }
         }
     }
-
-
 }
 
