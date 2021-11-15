@@ -12,6 +12,8 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    [SerializeField] private GameObject npc = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        npc.SetActive(true);
+
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.name;
@@ -56,5 +60,6 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        npc.SetActive(false);
     }
 }
