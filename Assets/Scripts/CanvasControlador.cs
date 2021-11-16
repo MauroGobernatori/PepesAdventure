@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Este script controla el canvas, activa y desactiva la muerte cuando llega la vida a 0, activa y desactiva el crosshair
+// también respawnea al jugador y cierra el juego si se elije salir cuando se meure
+
+// Este script está puesto en un objeto vacío "CanvasControlador"
+
 public class CanvasControlador : MonoBehaviour
 {
 

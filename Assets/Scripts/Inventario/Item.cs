@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Esta clase es el enum de los objetos "sagrados", que van a ser tomados por cada objeto sagrado de la escena
+// Tienen un nombre y un sprite, el sprite tomado de ItemAssets.cs
 public class Item {
     public enum ItemType
     {

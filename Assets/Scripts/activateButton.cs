@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script abre y cierra la puerta de la habitación 3, dependiendo de si está o nó activado, con una caja arriba
+
+// Este script está puesto en el botón de la habitación 2
+
 public class activateButton : MonoBehaviour
 {
 
@@ -14,6 +18,7 @@ public class activateButton : MonoBehaviour
 
     private void Start()
     {
+        // Agarro el material para cambiarle el color a verde si esta activado, y rojo si no
         material = GetComponent<Renderer>().material;
     }
 

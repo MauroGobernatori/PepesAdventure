@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Este script tiene los Sprites de los objetos "sagrados" para que se vean en el inventario
-// Está puesto en un objeto vació en la escena
+
+// Está puesto en un objeto vació en la escena ("ItemAssets")
 public class ItemAssets : MonoBehaviour
 {
     public static ItemAssets Instance { get; private set; }

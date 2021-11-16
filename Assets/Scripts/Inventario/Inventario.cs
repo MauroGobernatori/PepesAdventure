@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Este script 
+// Este script es el inventario que no se destruye en el cambio de escena
+// Cada vez que se agarra un objeto, es agregado a una lista
+
+// Este script esta puesto en un objeto vacío "Inventario"
 public class Inventario : MonoBehaviour
 {
-
-    public Inventory inventory;
-
     public List<Item> itemList;
 
     private void Awake()
     {
-        inventory = new Inventory();
         itemList = new List<Item>();
 
         DontDestroyOnLoad(this.gameObject);

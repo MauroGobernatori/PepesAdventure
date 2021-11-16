@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Este script se encarga de mostrar los objetos que están en el inventario
+
+// Este script está puesto en un objeto del canvas "UI_Inventory)
+
 public class UI_Inventory : MonoBehaviour
 {
 
     private Inventario inventory;
-    //private Inventory inventory;
-    private Inventory inventory2;
     private Transform itemSlotContainer;
     private Transform itemSlotTemplate;
 

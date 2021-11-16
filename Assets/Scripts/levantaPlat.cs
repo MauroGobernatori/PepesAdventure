@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Este script es para que al tocar panel de la pared con el laser, levante las plataformas para que formen un "puente"
+// en la primera habitación
 // Si el laser deja de tocar el panel de la pared, se baja el puente
+// Este script también baja y sube la pared de la segunda habitación
 
 // Este script está puesto en la panel de la pared
 public class levantaPlat : MonoBehaviour
@@ -19,10 +21,9 @@ public class levantaPlat : MonoBehaviour
     // Tomar la pared
     [SerializeField] private GameObject pared1 = null;
 
-    // Capaz algun cambio de esto sea de ponerle un array, para que a cada panel se le puedan poner cantidades diferentes de plataformas
-
     private void OnTriggerEnter(Collider other)
     {
+        // Si el laser toca el panel
         if (other.tag == "Laser")
         {
             descenderPared();
@@ -42,7 +43,7 @@ public class levantaPlat : MonoBehaviour
     {
         if (subirPlats)
         {
-            if (platform1.transform.position.y >= 11.5 && platform2.transform.position.y >= 11.5 && platform3.transform.position.y >= 11.5) return;
+            if (platform1.transform.position.y >= 11.5 && platform2.transform.position.y >= 11.5 && platform3.transform.position.y >= 11.5) return; // Si las plataformas llegan a una altura específica, dejan de subir
             platform1.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             platform2.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             platform3.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
@@ -55,7 +56,7 @@ public class levantaPlat : MonoBehaviour
             {
                 bajarPlats = false;
                 return;
-            }
+            } // Cuando las plataformas llegan a una altura específica, dejan de bajar
             platform1.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             platform2.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
             platform3.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
@@ -64,12 +65,14 @@ public class levantaPlat : MonoBehaviour
 
     private void descenderPared()
     {
+        // Baja la pared hasta que llega a una altura específica
         if (pared1.transform.position.y <= 35) return;
         pared1.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime;
     }
 
     private void levantarPared()
     {
+        // Levanta la pared hasta que llega a una altura específica
         if (pared1.transform.position.y >= 42) return;
         pared1.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime;
     }
