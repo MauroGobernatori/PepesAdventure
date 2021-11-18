@@ -4,7 +4,9 @@ using UnityEngine;
 
 
 /*
-    Este script es para que al tocar panel de la pared con el laser, levante la escalera, si el laser deja de tocar el panel de la pared, se baja el puente
+    Este script es para que al tocar panel de la pared con el laser, levante la escalera, si el laser deja de tocar el panel de la pared, se baja la escalera
+
+    Este script esta puesto en el panel de la habitación 4 ("Panel")
 */
 
 public class MoverEscalera : MonoBehaviour

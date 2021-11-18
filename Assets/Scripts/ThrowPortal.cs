@@ -4,6 +4,8 @@ using UnityEngine;
 
 /*
     Script que permite al arma que porta el jugador disparar portales.
+
+    Este script está puesto en la pistola ("Sci_Fi_Pistol_#1_prefab")
 */
 
 

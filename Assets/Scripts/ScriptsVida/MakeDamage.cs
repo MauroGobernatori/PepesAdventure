@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-    Este script se encarga de ejecutar la funcion de restarVida que se encuentra en el archivo healt_and_damge, lo que hace es sacarle cierta cantidad a la variable
+    Este script se encarga de ejecutar la funcion de restarVida que se encuentra en el script Player.cs, lo que hace es sacarle cierta cantidad a la variable
     vida que se encuentra en el personaje.
+
+    Este script está puesto en la lava
 */
 
 public class MakeDamage : MonoBehaviour

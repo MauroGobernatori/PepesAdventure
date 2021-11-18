@@ -4,6 +4,8 @@ using UnityEngine;
 
 /*
     Script encargado de subir y bajar la plataforma donde se encuentra la torreta en la habitación 3.
+
+    Este script está puesto en la torreta de la habitación 3 ("FattyMortarG02")
 */
 
 public class subirBajarTorreta : MonoBehaviour

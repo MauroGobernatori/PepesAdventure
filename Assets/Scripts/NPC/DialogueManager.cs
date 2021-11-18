@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Este scirpt incia el diálogo y lo continúa con el botón "N"
+
+// Este script está en un objeto vacío "DialogueManager" en ambas escenas
+
 public class DialogueManager : MonoBehaviour
 {
     public Text nameText;
