@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Script que permite al arma que porta el jugador disparar portales.
+*/
+
+
 public class ThrowPortal : MonoBehaviour
 {
 

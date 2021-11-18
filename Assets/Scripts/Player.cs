@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+    Este script se encarga de todo lo relacionado con las propiedades y funcionalidades del jugador.
+*/
+
 public class Player : MonoBehaviour
 {
     [SerializeField] private UI_Inventory uiInventory = null;
@@ -80,7 +84,7 @@ public class Player : MonoBehaviour
 
         sliderVidaValue.value = vida;
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))    //Muestra el inventario al apretar la tecla I.
         {
             showInventory = !showInventory;
             if (showInventory)
@@ -94,7 +98,7 @@ public class Player : MonoBehaviour
                 canvasInventory.SetActive(false);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z))    //Permite al jugador mover un objeto al apretar la Z 
         {
             if (!grabbingInput)
             {
@@ -148,7 +152,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)  //Este script hace que al pasar por encima de un objeto collectable este lo almacene en el invetario y lo borre del plano.
     {
         if (collision.gameObject.tag == "Collectable")
         {
@@ -176,7 +180,7 @@ public class Player : MonoBehaviour
             }
             uiInventory.setInventory(inventory);
         }
-        if(collision.gameObject.name == "Checkpoint1")
+        if(collision.gameObject.name == "Checkpoint1")  //Las siguientes lineas se encargan de marcar los checkpoints luego de qu eel jugador pase sobre estos.
         {
             if(spawnCounter < 1)
             {
@@ -205,7 +209,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void grabbed()
+    private void grabbed() //Script para mover objetos.
     {
         grabbing.GetComponent<Rigidbody>().useGravity = false;
         grabbing.GetComponent<Rigidbody>().isKinematic = true;
@@ -214,7 +218,7 @@ public class Player : MonoBehaviour
         grabbing.transform.parent = puntoAgarre.transform;
     }
 
-    public void released()
+    public void released()  //Script para soltar objetos.
     {
         grabbingInput = false;
         grabbing.GetComponent<Rigidbody>().useGravity = true;
@@ -225,7 +229,7 @@ public class Player : MonoBehaviour
         ungrabInput = false;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //Script que si el jugador toca los lasers pierde instanteamente.
     {
         if (other.gameObject.tag == "Laser")
         {
@@ -234,7 +238,7 @@ public class Player : MonoBehaviour
     }
 
     // Funciones de la vida
-    public void RestarVida(float cantidad)
+    public void RestarVida(float cantidad) //Script que resta la vida al jugador al pasar por encima de la lava.
     {
         if (!invencible && vida > 0)
         {
@@ -249,9 +253,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void GameOver()
+    private void GameOver() //Script de fin de juego al momento de que el jugador muera.
     {
-        //Poner aqui script para menu de muerte.
         showMuerte = !showMuerte;
         if (showMuerte)
         {
@@ -275,7 +278,7 @@ public class Player : MonoBehaviour
         invencible = false;
     }
 
-    public void RestarVidaTorreta(int cantidad)
+    public void RestarVidaTorreta(int cantidad) //Script que se encarga de restar la vida del jugador cuando es impactado por una bala de la torreta.
     {
         if (vida > 0)
         {

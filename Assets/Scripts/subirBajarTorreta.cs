@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+    Script encargado de subir y bajar la plataforma donde se encuentra la torreta en la habitación 3.
+*/
+
 public class subirBajarTorreta : MonoBehaviour
 {
 

@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+    Este script permite al jugador y a los lasers pasar a traves del portal.
+*/
+
 
 public class StepThroughPortal : MonoBehaviour
 {
