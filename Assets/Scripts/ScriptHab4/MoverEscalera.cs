@@ -24,7 +24,12 @@ public class MoverEscalera : MonoBehaviour
         {
             if (subirEscalera) return;
             if (bajarEscalera) return;
-            bajarEscalera = true;
+            
+            if(!(escalera.transform.position.y <= 54.53))
+            {
+                Debug.Log("Enter");
+                bajarEscalera = true;
+            }
         }
     }
 
@@ -36,20 +41,25 @@ public class MoverEscalera : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(bajarEscalera);
         if (subirEscalera)
         {
-            if (escalera.transform.localPosition.y >= 5.72) return;
-            escalera.transform.position += new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            if (escalera.transform.localPosition.y >= 5.72)
+            {
+                subirEscalera = false;
+                return;
+            }
+            escalera.transform.position += new Vector3(0, 1.5f, 0) * Time.deltaTime * 2;
         }
-
         if (bajarEscalera)
         {
+            
             if (escalera.transform.position.y <= 54.53)
             {
                 bajarEscalera = false;
                 return;
             }
-            escalera.transform.position -= new Vector3(0, 3.1f, 0) * Time.deltaTime * 2;
+            escalera.transform.position -= new Vector3(0, 2f, 0) * Time.deltaTime * 2;
         }
     }
 

@@ -5,6 +5,8 @@ using UnityEngine;
 
 /*
 Este script se encarga de destruir la bala una vez que esta impacta con el objetivo o se va del mapa.
+
+Este script está puesto en cada torreta
 */
 
 public class ComportamientoBala : MonoBehaviour

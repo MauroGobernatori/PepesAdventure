@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Este script hace todos los movimientos del personaje
+
+// Este script está puesto en el personaje
+
 public class ComportamientoPersonaje : MonoBehaviour
 {
 
@@ -17,7 +21,6 @@ public class ComportamientoPersonaje : MonoBehaviour
 
     public float velocidadInicial;
     public float velocidadAgachado;
-
 
 
     // Start is called before the first frame update

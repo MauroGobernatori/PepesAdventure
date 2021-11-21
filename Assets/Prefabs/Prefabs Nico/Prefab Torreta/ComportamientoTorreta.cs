@@ -8,6 +8,8 @@ public class ComportamientoTorreta : MonoBehaviour
     /*
     Este script se encarga de manipular el comportamiento de la torreta, asignandole un objetivo, balas, spawns de balas y demas. Cada vez que el usuario entra dentro del rango
     de disparo de la torreta ésta instancia el prefab de la bala y con el lookAt dirige la bala al objetivo.
+
+    Este script está puesto en cada torreta
     */
 
     public Transform target;
